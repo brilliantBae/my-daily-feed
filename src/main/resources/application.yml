@@ -1,0 +1,27 @@
+handlebars:
+  suffix: .html
+  expose-session-attributes: true
+  cache: false
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+  datasource:
+    username: jiwone
+    password: jiwone
+    url: jdbc:mysql://localhost/my_daily_feed
+  devtools:
+    livereload:
+      enabled: true
+
+logging:
+  pattern:
+    level: trace
+
+
+
+
+
