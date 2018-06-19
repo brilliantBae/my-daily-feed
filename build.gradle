@@ -36,6 +36,6 @@ dependencies {
     testCompile('org.assertj:assertj-core:3.9.0')
     testCompile('io.rest-assured:rest-assured:3.0.3')
     compile ('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0')
-    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '0.9.26'
-
+    testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    compile("org.springframework.boot:spring-boot-devtools")
 }

@@ -6,19 +6,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-
-@NoArgsConstructor
 @Entity
 public class User {
     @Id
     @GeneratedValue
     private Long id;
 
-    @Size(min = 3, max = 20)
-    @Column(unique = true, nullable = false, length = 20)
-    private String userId;
+    @Email
+    private String email;
 
     @Size(min = 3, max = 20)
     @Column(nullable = false, length = 20)
@@ -28,13 +26,14 @@ public class User {
     @Column(unique = true, nullable = false, length = 20)
     private String name;
 
-    private User(Long id, String userId, String password, String name) {
+    public User(){}
+    private User(Long id, String email, String password, String name) {
         this.id = id;
-        this.userId = userId;
+        this.email = email;
         this.password = password;
         this.name = name;
     }
-    public User(String userId, String password, String name) {
-        this(0L, userId, password, name);
+    public User(String email, String password, String name) {
+        this(0L, email, password, name);
     }
 }
