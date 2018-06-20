@@ -5,6 +5,7 @@ handlebars:
 
 spring:
   jpa:
+    database: MYSQL
     hibernate:
       ddl-auto: create
     show-sql: true
@@ -13,6 +14,7 @@ spring:
     username: jiwon
     password: jiwon
     url: jdbc:mysql://localhost/my_daily_feed
+    driverClassName: com.mysql.jdbc.Driver
   devtools:
     livereload:
       enabled: true
