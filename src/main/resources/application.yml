@@ -5,6 +5,7 @@ handlebars:
 
 spring:
     jpa:
+      database: mysql
       hibernate:
         ddl-auto: create-drop
       show-sql: true
