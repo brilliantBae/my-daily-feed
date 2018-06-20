@@ -3,18 +3,31 @@ handlebars:
   expose-session-attributes: true
   cache: false
 
+#spring:
+                                           ##  jpa:
+                                           ##    database: MYSQL
+                                           ##    hibernate:
+                                           ##      ddl-auto: create
+                                           ##    show-sql: true
+                                           ##    database-platform: org.hibernate.dialect.MySQL5Dialect
+                                           ##  datasource:
+                                           ##    username: jiwon
+                                           ##    password: jiwon
+                                           ##    url: jdbc:mysql://localhost/my_daily_feed
+                                           ##    driverClassName: com.mysql.jdbc.Driver
 spring:
-  jpa:
-    database: MYSQL
-    hibernate:
-      ddl-auto: create
-    show-sql: true
-    database-platform: org.hibernate.dialect.MySQL5Dialect
   datasource:
+    data: classpath:data-h2.sql # 시작할때 실행시킬 script
     username: jiwon
     password: jiwon
-    url: jdbc:mysql://localhost/my_daily_feed
-    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:h2://localhost/my_daily_feed
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
   devtools:
     livereload:
       enabled: true
