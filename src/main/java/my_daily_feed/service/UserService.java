@@ -16,5 +16,8 @@ public class UserService {
         return userRepository.save(userDto._toUser());
     }
 
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email).orElse(null);
+    }
 
 }

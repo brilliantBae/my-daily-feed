@@ -47,9 +47,38 @@ public class UserAcceptanceTest {
                 .addParameter("email", email).addParameter("password", "password").addParameter("name", "지원이")
                 .build();
         ResponseEntity<String> response = template.postForEntity("/users", request, String.class);
-        assertThat(response.getStatusCode(), is(HttpStatus.FOUND));
 
+        assertThat(response.getStatusCode(), is(HttpStatus.FOUND));
+        assertThat(response.getHeaders().getLocation().getPath(), is("/"));
         assertNotNull(userRepository.findByEmail(email));
-        // DB에 잘 저장되었는지 확인
     }
+
+    @Test
+    public void login_success() throws Exception {
+        String correctEmail = "jwb8705@gmail.com";
+
+        HttpEntity<MultiValueMap<String, Object>> request = HtmlFormDataBuilder.urlEncodedForm()
+                .addParameter("email", correctEmail).addParameter("password", "password1").build();
+
+        ResponseEntity<String> response = template.postForEntity("/users/login", request, String.class);
+
+        assertThat(response.getStatusCode(), is(HttpStatus.FOUND));
+        assertTrue(response.getHeaders().getLocation().getPath().startsWith("/"));
+        log.debug("body : {}", response.getBody());
+    }
+
+//    @Test
+//    public void login_fail() throws Exception {
+//        String wrongEmail = "wrong@gmail.com";
+//
+//        HttpEntity<MultiValueMap<String, Object>> request = HtmlFormDataBuilder.urlEncodedForm()
+//                .addParameter("email", wrongEmail).addParameter("password", "test").build();
+//
+//        ResponseEntity<String> response = template.postForEntity("/users/login", request, String.class);
+//
+//        assertThat(response.getStatusCode(), is(HttpStatus.OK));
+//        log.debug("body : {}", response.getBody());
+//        String body = response.getBody();
+//        assertTrue(body.contains("아이디 또는 비밀번호가 다릅니다."));
+//    }
 }
