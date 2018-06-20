@@ -6,7 +6,7 @@ handlebars:
 spring:
     jpa:
       hibernate:
-        ddl-auto: create
+        ddl-auto: create-drop
       show-sql: true
       database-platform: org.hibernate.dialect.MySQL5Dialect
     datasource:
