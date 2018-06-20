@@ -13,7 +13,7 @@ spring:
         username: jiwon
         password: jiwon
         url: jdbc:mysql://localhost/my_daily_feed
-        driverClassName: com.mysql.jdbc.Driver
+        driverClassName: com
     devtools:
       livereload:
         enabled: true

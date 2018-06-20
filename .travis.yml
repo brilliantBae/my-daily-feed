@@ -16,6 +16,8 @@ cache:
     - '$Home/.m2/repository'
     - '$Home/.gradle'
 
+before_install:
+	- mysql -e 'CREATE DATABASE my_daily_feed'
 script: "./gradlew clean build"
 
 # CI 실행 완료시 메일로 알람
