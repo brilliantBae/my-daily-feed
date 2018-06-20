@@ -4,6 +4,7 @@ jdk:
 
 branches:
   only:
+    - gh-pages
     - master
 
 # Travis CI 서버의 home
