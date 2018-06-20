@@ -14,22 +14,9 @@ spring:
         password: jiwon
         url: jdbc:mysql://localhost/my_daily_feed
         driverClassName: com.mysql.jdbc.Driver
-
-#spring:
-#  datasource:
-#    username: jiwon
-#    password: jiwon
-#    url: jdbc:h2:~/my_daily_feed
-#  jpa:
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: create-drop
-#  h2:
-#    console:
-#      enabled: true
-#  devtools:
-#    livereload:
-#      enabled: true
+    devtools:
+      livereload:
+        enabled: true
 
 logging:
   pattern:

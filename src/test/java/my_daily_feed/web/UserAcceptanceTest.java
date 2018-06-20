@@ -2,6 +2,7 @@ package my_daily_feed.web;
 
 import my_daily_feed.dto.UserDto;
 import my_daily_feed.repository.UserRepository;
+import my_daily_feed.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -29,8 +30,8 @@ public class UserAcceptanceTest {
     @Autowired
     private TestRestTemplate template;
 
-    @Resource(name = "userRepository")
-    private UserRepository userRepository;
+    @Resource(name = "userService")
+    private UserService userService;
 
     @Test
     public void createForm() {
@@ -50,7 +51,7 @@ public class UserAcceptanceTest {
 
         assertThat(response.getStatusCode(), is(HttpStatus.FOUND));
         assertThat(response.getHeaders().getLocation().getPath(), is("/"));
-        assertNotNull(userRepository.findByEmail(email));
+        assertNotNull(userService.findByEmail(email));
     }
 
     @Test
