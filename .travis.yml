@@ -18,6 +18,9 @@ cache:
 
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS my_daily_feed;'
+  - mysql -u root -e "CREATE USER 'jiwon'@'localhost' IDENTIFIED BY 'jiwon';"
+  - mysql -u root -e "GRANT ALL ON my_daily_feed.* TO 'jiwon'@'localhost';"
+  - mysql -u FLUSH PRIVILEGES;
 
 script: "./gradlew clean build"
 
