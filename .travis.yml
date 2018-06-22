@@ -18,10 +18,24 @@ cache:
 
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS my_daily_feed;'
-  - mysql -u root -e "CREATE USER 'jiwon'@'localhost' IDENTIFIED BY 'jiwon';"
-  - mysql -u root -e "GRANT ALL ON my_daily_feed.* TO 'jiwon'@'localhost';"
+  - mysql -u root -e 'CREATE USER 'jiwon'@'localhost' IDENTIFIED BY 'jiwon';'
+  - mysql -u root -e 'GRANT ALL ON my_daily_feed.* TO 'jiwon'@'localhost';'
 
 script: "./gradlew clean build"
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: my-daily-feed-code-deploy
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: public_read
+    wait-until-deployed: true
+    on:
+      repo: brilliantBae/my-daily-feed
+      branch: master
+
 
 # CI 실행 완료시 메일로 알람
 notifications:
