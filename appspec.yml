@@ -1,0 +1,8 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/app/travis/build/ # EC2 서버 내에 zip 파일 받을 디렉토리
+
+
+
