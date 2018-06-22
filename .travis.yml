@@ -16,16 +16,17 @@ cache:
     - '$Home/.m2/repository'
     - '$Home/.gradle'
 
-before_install:
+before install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS my_daily_feed;'
   - mysql -u root -e "CREATE USER 'jiwon'@'localhost' IDENTIFIED BY 'jiwon';"
   - mysql -u root -e "GRANT ALL ON my_daily_feed.* TO 'jiwon'@'localhost';"
 
 script: "./gradlew clean build"
-before deploy:
-  - zip -r my-daily-feed *
-  - mkdir -p deploy
-  - mv my-daily-feed.zip deploy/my-daily-feed.zip
+
+#before deploy:
+#  - zip -r my-daily-feed *
+#  - mkdir -p deploy
+#  - mv my-daily-feed.zip deploy/my-daily-feed.zip
 
 deploy:
   - provider: s3
@@ -35,7 +36,7 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
-    local_dir: deploy # 해당 디렉토리(deploy) 내용들만 s3 로 전송
+#    local_dir: deploy # 해당 디렉토리(deploy) 내용들만 s3 로 전송
     wait-until-deployed: true
     on:
       repo: brilliantBae/my-daily-feed
