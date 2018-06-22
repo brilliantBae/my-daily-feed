@@ -4,5 +4,9 @@ files:
   - source: /
     destination: /home/ubuntu/app/travis/build/ # EC2 서버 내에 zip 파일 받을 디렉토리
 
+hooks:
+  AfterInstall: # code deploy 배포가 끝나면 아래 명령어를 실행
+    - location: execute-deploy.sh
+      timeout: 180
 
 
