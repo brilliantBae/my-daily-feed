@@ -32,7 +32,7 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-    bucket: my-daily-feed-code-deploy
+    bucket: "my-daily-feed-code-deploy"
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
@@ -45,7 +45,7 @@ deploy:
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
     secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-    bucket: my-daily-feed-code-deploy # S3 버킷
+    bucket: "my-daily-feed-code-deploy" # S3 버킷
     key: my-daily-feed.zip # S3 버킷에 저장된 my-daily-feed.zip 파일을 EC2로 배포
     bundle_type: zip
     application: my-daily-feed # CodeDeploy 어플리케이션 이름
