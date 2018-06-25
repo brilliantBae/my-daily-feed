@@ -11,11 +11,14 @@ branches:
     - master
 
 # Travis CI 서버의 home
-#cache:
-#  directories:
-#    - '$Home/.m2/repository'
-#    - '$Home/.gradle'
-cache: false
+before cache:
+  - rm BOOT-INF/lib/spring-boot-starter-parent-2.0.0.RELEASE.pom
+
+cache:
+  directories:
+    - '$Home/.m2/repository'
+    - '$Home/.gradle'
+
 
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS my_daily_feed;'
