@@ -38,6 +38,6 @@ dependencies {
     compile ('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0')
     testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     compile("org.springframework.boot:spring-boot-devtools")
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.0.0.RELEASE', ext: 'pom'
+//    compile group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.0.0.RELEASE', ext: 'pom'
 
 }
