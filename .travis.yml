@@ -22,24 +22,24 @@ before_install:
 
 script: "./gradlew clean build"
 
-#before_deploy:
-#  - zip -r my-daily-feed *
-#  - mkdir -p deploy
-#  - mv my-daily-feed.zip deploy/my-daily-feed.zip
-#
-#deploy:
-#  - provider: s3
-#    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-#    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-#    bucket: "my-daily-feed-code-deploy"
-#    region: ap-northeast-2
-#    skip_cleanup: true
-#    acl: public_read
-#    local_dir: deploy # 해당 디렉토리(deploy) 내용들만 s3 로 전송
-#    wait-until-deployed: true
-#    on:
-#      repo: brilliantBae/my-daily-feed
-#      branch: master
+before_deploy:
+  - zip -r my-daily-feed *
+  - mkdir -p deploy
+  - mv my-daily-feed.zip deploy/my-daily-feed.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: "my-daily-feed-code-deploy"
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: public_read
+    local_dir: deploy # 해당 디렉토리(deploy) 내용들만 s3 로 전송
+    wait-until-deployed: true
+    on:
+      repo: brilliantBae/my-daily-feed
+      branch: master
 #
 #  - provider: codedeploy
 #    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
