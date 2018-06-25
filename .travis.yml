@@ -12,7 +12,7 @@ branches:
 
 # Travis CI 서버의 home
 before cache:
-  - rm -f  $HOME/.gradle
+  - rm -rf  $HOME/.gradle
 
 cache:
   directories:
