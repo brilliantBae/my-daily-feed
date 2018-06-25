@@ -12,7 +12,7 @@ branches:
 
 # Travis CI 서버의 home
 before cache:
-  - rm BOOT-INF/lib/spring-boot-starter-parent-2.0.0.RELEASE.pom
+  - rm -f  $HOME/.gradle
 
 cache:
   directories:
