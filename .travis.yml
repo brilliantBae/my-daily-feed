@@ -22,6 +22,7 @@ before_install:
   - mysql -u root -e "CREATE USER 'jiwon'@'localhost' IDENTIFIED BY 'jiwon';"
   - mysql -u root -e "GRANT ALL ON my_daily_feed.* TO 'jiwon'@'localhost';"
 
+before script: "gradle --refresh-dependencies"
 script: "./gradlew clean build"
 
 before_deploy:
