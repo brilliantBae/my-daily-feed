@@ -40,20 +40,20 @@ deploy:
     on:
       repo: brilliantBae/my-daily-feed
       branch: master
-#
-#  - provider: codedeploy
-#    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
-#    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
-#    bucket: "my-daily-feed-code-deploy" # S3 버킷
-#    key: deploy/my-daily-feed.zip # S3 버킷에 저장된 my-daily-feed.zip 파일을 EC2로 배포
-#    bundle_type: zip
-#    application: my-daily-feed # CodeDeploy 어플리케이션 이름
-#    deployment_group: my-daily-feed-group
-#    region: ap-northeast-2
-#    wait-until-deployed: true
-#    on:
-#      repo: brilliantBae/my-daily-feed
-#      branch: master
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: "my-daily-feed-code-deploy" # S3 버킷
+    key: my-daily-feed.zip # S3 버킷에 저장된 my-daily-feed.zip 파일을 EC2로 배포
+    bundle_type: zip
+    application: my-daily-feed # CodeDeploy 어플리케이션 이름
+    deployment_group: my-daily-feed-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on:
+      repo: brilliantBae/my-daily-feed
+      branch: master
 
 # CI 실행 완료시 메일로 알람
 notifications:
