@@ -1,7 +1,5 @@
 package my_daily_feed.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import my_daily_feed.dto.ArticleDto;
 
 import javax.persistence.*;

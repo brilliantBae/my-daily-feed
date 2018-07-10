@@ -1,5 +1,8 @@
 package my_daily_feed.domain;
 
+import my_daily_feed.dto.FeedDto;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,7 +13,11 @@ public class Feed {
     @Id
     @GeneratedValue
     private Long id;
+
+    @Column(unique = true, nullable = false)
     private String title;
+
+    @Column(unique = true, nullable = false)
     private List<String> RSS_URL;
 
     public Feed(){}
@@ -25,4 +32,7 @@ public class Feed {
         this(0L, title, RSS_URL);
     }
 
+    public FeedDto _toFeedDto(){
+        return new FeedDto(this.title, this.RSS_URL);
+    }
 }
