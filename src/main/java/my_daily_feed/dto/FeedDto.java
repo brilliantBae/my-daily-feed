@@ -4,20 +4,24 @@ import lombok.Getter;
 import lombok.Setter;
 import my_daily_feed.domain.Feed;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 public class FeedDto {
     private String title;
-    private List<String> RSS_URL;
 
-    public FeedDto(String title, List<String> RSS_URL) {
+
+    public FeedDto(String title) {
         this.title = title;
-        this.RSS_URL = RSS_URL;
     }
 
     public Feed _toFeed(){
-        return new Feed(this.title, this.RSS_URL);
+        return new Feed(this.title);
     }
 }

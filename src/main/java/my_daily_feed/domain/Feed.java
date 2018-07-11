@@ -1,38 +1,36 @@
 package my_daily_feed.domain;
 
+import lombok.Getter;
+import lombok.Setter;
 import my_daily_feed.dto.FeedDto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@Table(name="feed")
 public class Feed {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
 
     @Column(unique = true, nullable = false)
     private String title;
 
-    @Column(unique = true, nullable = false)
-    private List<String> RSS_URL;
-
     public Feed(){}
 
-    public Feed(Long id, String title, List<String> RSS_URL) {
+    public Feed(Long id, String title) {
         this.id = id;
         this.title = title;
-        this.RSS_URL = RSS_URL;
     }
 
-    public Feed(String title, List<String> RSS_URL ){
-        this(0L, title, RSS_URL);
+    public Feed(String title){
+        this(0L, title);
     }
 
     public FeedDto _toFeedDto(){
-        return new FeedDto(this.title, this.RSS_URL);
+        return new FeedDto(this.title);
     }
 }

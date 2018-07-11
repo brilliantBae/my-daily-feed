@@ -10,3 +10,4 @@ public class MyDailyFeedApplication {
         SpringApplication.run(MyDailyFeedApplication.class, args);
     }
 }
+

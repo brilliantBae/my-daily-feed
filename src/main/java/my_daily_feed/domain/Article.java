@@ -1,11 +1,15 @@
 package my_daily_feed.domain;
 
+import lombok.Getter;
+import lombok.ToString;
 import my_daily_feed.dto.ArticleDto;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Getter
+@ToString
 public class Article {
     @Id
     @GeneratedValue

@@ -7,9 +7,15 @@ spring:
     jpa:
       database: mysql
       hibernate:
-        ddl-auto: create-drop
+        ddl-auto: create
       show-sql: true
-      database-platform: org.hibernate.dialect.MySQL5Dialect
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      open-in-view: true
+      properties:
+        hibernate:
+          format_sql: true
+
+
     datasource:
         username: jiwon
         password: jiwon
