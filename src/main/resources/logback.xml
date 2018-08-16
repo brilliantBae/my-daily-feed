@@ -8,7 +8,7 @@
     </appender>
 
     <logger name="jiwon" level="DEBUG"/>
-    d
+
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
